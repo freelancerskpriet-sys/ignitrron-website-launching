@@ -109,9 +109,21 @@
       padding: 60px 0;
     }
 
+    @media (max-width: 900px) {
+      .container {
+        padding: 0 18px;
+      }
+    }
+
     @media (max-width: 768px) {
       section {
         padding: 40px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 14px;
       }
     }
 
@@ -120,7 +132,7 @@
        ========================= */
     .hero {
       text-align: center;
-      padding-bottom: 20px;
+      padding-bottom: 10px;
     }
 
     .hero h1 {
@@ -136,7 +148,7 @@
     }
 
     .hero p {
-      font-size: clamp(16px, 2.2vw, 18px);
+      font-size: clamp(15px, 2.2vw, 18px);
       color: var(--muted);
       max-width: 720px;
       margin: 0 auto;
@@ -228,12 +240,24 @@
       filter: drop-shadow(0 18px 40px rgba(0,0,0,0.6));
     }
 
+    @media (max-width: 900px) {
+      .logo-row {
+        gap: 18px;
+      }
+    }
+
     @media (max-width: 768px) {
       .logo-row {
         grid-template-columns: 1fr;
       }
       .logo-wrapper img {
-        max-height: 150px;
+        max-height: 160px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-wrapper img {
+        max-height: 140px;
       }
     }
 
@@ -280,6 +304,13 @@
       mask-composite: exclude;
       pointer-events: none;
       opacity: 0.6;
+    }
+
+    @media (max-width: 480px) {
+      .btn {
+        padding: 12px 22px;
+        font-size: 14px;
+      }
     }
 
     /* =========================
@@ -402,8 +433,8 @@
     .overlay {
       position: fixed;
       inset: 0;
-      background: rgba(5, 6, 10, 0.78);
-      backdrop-filter: blur(10px);
+      background: rgba(5, 6, 10, 0.82);
+      backdrop-filter: blur(12px);
       display: grid;
       place-items: center;
       z-index: 9999;
@@ -421,6 +452,7 @@
       text-align: center;
       position: relative;
       z-index: 2;
+      padding: 20px;
     }
 
     .count-number {
@@ -448,8 +480,6 @@
       width: 10px;
       height: 10px;
       border-radius: 50% 50% 0 50%;
-      background: radial-gradient(circle at 30% 30%, var(--accent), transparent 60%),
-                  radial-gradient(circle at 70% 40%, var(--accent-2), transparent 60%);
       opacity: 0.9;
       filter: blur(0.4px);
       animation: flyUp 1.6s ease-out forwards;
@@ -470,19 +500,15 @@
       }
     }
 
-    /* =========================
-       RESPONSIVE TWEAKS
-       ========================= */
     @media (max-width: 480px) {
-      .btn {
-        padding: 12px 22px;
-        font-size: 14px;
-      }
       .logo-wrapper {
         padding: 14px;
       }
-      .logo-wrapper img {
-        max-height: 130px;
+      .launch-section {
+        padding: 24px;
+      }
+      .launch-by {
+        padding: 20px;
       }
     }
   </style>
