@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>KPRIET FREELANCERS — Official Website Launch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Official website launch of KPRIET FREELANCERS by IGNITRON — Empowering campus talent through a unified freelancing platform." />
+
+  <style>
+    /* =========================
+       ROOT & GLOBAL STYLES
+       ========================= */
+    :root {
+      --bg: #0b0c10;
+      --bg-2: #0f1117;
+      --text: #e8e9ed;
+      --muted: #9aa0b4;
+      --accent: #7c9cff;
+      --accent-2: #5ee2c8;
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+      --radius-lg: 22px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: radial-gradient(1200px 800px at 10% -10%, #1a1f2e 0%, transparent 60%),
+                  radial-gradient(900px 700px at 90% 10%, #13202a 0%, transparent 60%),
+                  linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========================
+       BACKGROUND BLOBS
+       ========================= */
+    .blobs {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(60px);
+      opacity: 0.55;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, var(--accent), transparent 60%);
+      animation: float 18s ease-in-out infinite;
+    }
+
+    .blob.b2 {
+      background: radial-gradient(circle at 70% 40%, var(--accent-2), transparent 60%);
+      animation-delay: -6s;
+    }
+
+    .blob.b3 {
+      background: radial-gradient(circle at 50% 60%, #9b7cff, transparent 60%);
+      animation-delay: -12s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(40px, -30px) scale(1.05); }
+    }
+
+    /* =========================
+       LAYOUT
+       ========================= */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 40px 0;
+      }
+    }
+
+    /* =========================
+       HERO / TITLE SECTION
+       ========================= */
+    .hero {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin-bottom: 16px;
+      background: linear-gradient(90deg, #fff, #cfd6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: clamp(16px, 2.2vw, 18px);
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       LOGO ROW (FULL WIDTH, REDUCED SIZE, SHINY BORDER, SMOKEY FILL)
+       ========================= */
+    .logo-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 28px 0 24px;
+      width: 100%;
+    }
+
+    .logo-wrapper {
+      position: relative;
+      width: 100%;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    /* Shiny border effect using a pseudo element */
+    .logo-wrapper::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(
+        120deg,
+        rgba(124,156,255,0.65),
+        rgba(94,226,200,0.35),
+        rgba(155,124,255,0.35),
+        rgba(124,156,255,0.65)
+      );
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    /* Smoky fill between container border and image */
+    .logo-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(120% 120% at 50% 0%,
+                  rgba(124,156,255,0.18),
+                  rgba(155,124,255,0.08) 40%,
+                  rgba(255,255,255,0.02) 70%,
+                  transparent 80%);
+      box-shadow: inset 0 0 35px rgba(124,156,255,0.18);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .logo-wrapper img {
+      position: relative;
+      z-index: 1;
+      width: 92%;
+      height: auto;
+      max-height: 200px;
+      object-fit: contain;
+      border-radius: 18px;
+      filter: drop-shadow(0 12px 30px rgba(0,0,0,0.5));
+      transition: transform 0.35s ease, filter 0.35s ease;
+      display: block;
+      background: radial-gradient(120% 120% at 50% 0%,
+                    rgba(255,255,255,0.06),
+                    rgba(255,255,255,0.02) 60%,
+                    rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .logo-wrapper:hover img {
+      transform: scale(1.02);
+      filter: drop-shadow(0 18px 40px rgba(0,0,0,0.6));
+    }
+
+    @media (max-width: 768px) {
+      .logo-row {
+        grid-template-columns: 1fr;
+      }
+      .logo-wrapper img {
+        max-height: 150px;
+      }
+    }
+
+    /* =========================
+       BUTTON
+       ========================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.2px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      color: #0b0c10;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      box-shadow: 0 10px 30px rgba(124,156,255,0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(124,156,255,0.45);
+    }
+
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    /* =========================
+       LAUNCH SECTION
+       ========================= */
+    .launch-section {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .launch-section::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(120deg, rgba(124,156,255,0.25), rgba(94,226,200,0.15), rgba(155,124,255,0.15));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .launch-title {
+      font-size: clamp(22px, 3vw, 28px);
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .launch-text {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       LAUNCH BY CARD
+       ========================= */
+    .launch-by {
+      max-width: 520px;
+      margin: 40px auto 0;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .launch-by::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(120deg, rgba(124,156,255,0.2), rgba(94,226,200,0.12), rgba(155,124,255,0.12));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .launch-by-title {
+      font-size: 13px;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .launch-by-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .launch-by-role {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .launch-by-institute {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* =========================
+       FADE-IN ON SCROLL
+       ========================= */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       COUNTDOWN OVERLAY
+       ========================= */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 6, 10, 0.78);
+      backdrop-filter: blur(10px);
+      display: grid;
+      place-items: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .overlay.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .overlay-inner {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .count-number {
+      font-size: clamp(56px, 10vw, 96px);
+      font-weight: 900;
+      color: #fff;
+      text-shadow: 0 8px 40px rgba(124,156,255,0.6);
+      animation: pulseNum 0.9s ease-in-out infinite;
+    }
+
+    @keyframes pulseNum {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.08); opacity: 0.85; }
+    }
+
+    .overlay-text {
+      margin-top: 10px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    /* Flower / confetti pieces */
+    .flower {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50% 50% 0 50%;
+      background: radial-gradient(circle at 30% 30%, var(--accent), transparent 60%),
+                  radial-gradient(circle at 70% 40%, var(--accent-2), transparent 60%);
+      opacity: 0.9;
+      filter: blur(0.4px);
+      animation: flyUp 1.6s ease-out forwards;
+      transform-origin: center;
+    }
+
+    @keyframes flyUp {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(0.8);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-140px) rotate(220deg) scale(1.1);
+        opacity: 0;
+      }
+    }
+
+    /* =========================
+       RESPONSIVE TWEAKS
+       ========================= */
+    @media (max-width: 480px) {
+      .btn {
+        padding: 12px 22px;
+        font-size: 14px;
+      }
+      .logo-wrapper {
+        padding: 14px;
+      }
+      .logo-wrapper img {
+        max-height: 130px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Blobs -->
+  <div class="blobs">
+    <div class="blob b1" style="width: 320px; height: 320px; left: 5%; top: 10%;"></div>
+    <div class="blob b2" style="width: 260px; height: 260px; right: 8%; top: 20%;"></div>
+    <div class="blob b3" style="width: 220px; height: 220px; left: 40%; bottom: 10%;"></div>
+  </div>
+
+  <!-- Countdown Overlay -->
+  <div class="overlay" id="launchOverlay" aria-hidden="true">
+    <div class="overlay-inner">
+      <div class="count-number" id="countNumber">5</div>
+      <div class="overlay-text">Launching platform...</div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <!-- Hero: Title + Subtitle -->
+    <section class="hero fade-in">
+      <h1>KPRIET FREELANCERS</h1>
+      <p>
+        Empowering campus talent by connecting students, clients and administrators through one unified freelancing platform.
+      </p>
+    </section>
+
+    <!-- Images Row (Full Width, Reduced Size, Shiny Border, Smokey Fill, Rounded Images) -->
+    <div class="logo-row fade-in">
+      <div class="logo-wrapper">
+        <img src="image1.png" alt="KPRIET Logo" />
+      </div>
+      <div class="logo-wrapper">
+        <img src="image2.png" alt="IGNITRON Logo" />
+      </div>
+    </div>
+
+    <!-- Launch Section -->
+    <section class="launch-section fade-in">
+      <h2 class="launch-title">Website Launch</h2>
+      <p class="launch-text">
+        The KPRIET Freelancers platform is officially launched to encourage innovation, collaboration and professional freelancing opportunities within the campus community.
+      </p>
+      <a href="https://kpriet-freelancer-platform.web.app/index.html" target="_blank" class="btn btn-primary" id="launchBtn">
+        Launch Platform
+      </a>
+
+      <div class="launch-by fade-in">
+        <div class="launch-by-title">Launch By</div>
+        <div class="launch-by-name">Dr. Devi Priya</div>
+        <div class="launch-by-role">Principal</div>
+        <div class="launch-by-institute">KPR Institute of Engineering and Technology</div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Launch button countdown + flower animation
+    const launchBtn = document.getElementById('launchBtn');
+    const overlay = document.getElementById('launchOverlay');
+    const countNumber = document.getElementById('countNumber');
+    const targetUrl = launchBtn.href;
+
+    function createFlowers() {
+      const rect = overlay.getBoundingClientRect();
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const colors = ["#7c9cff", "#5ee2c8", "#ff7cac", "#ffd166", "#9b7cff"];
+
+      for (let i = 0; i < 60; i++) {
+        const flower = document.createElement('div');
+        flower.className = 'flower';
+        const size = 8 + Math.random() * 10;
+        flower.style.width = `${size}px`;
+        flower.style.height = `${size}px`;
+
+        // Random position around center
+        const angle = Math.random() * Math.PI * 2;
+        const radius = 40 + Math.random() * 120;
+        const x = centerX + Math.cos(angle) * radius;
+        const y = centerY + Math.sin(angle) * radius;
+
+        flower.style.left = `${x}px`;
+        flower.style.top = `${y}px`;
+
+        const bgCol = colors[Math.floor(Math.random() * colors.length)];
+        flower.style.background = `radial-gradient(circle at 30% 30%, ${bgCol}, transparent 60%)`;
+
+        flower.style.animationDuration = `${1.2 + Math.random() * 0.8}s`;
+        flower.style.animationDelay = `${Math.random() * 0.2}s`;
+
+        overlay.appendChild(flower);
+      }
+    }
+
+    launchBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (overlay.classList.contains('visible')) return;
+
+      overlay.classList.add('visible');
+      overlay.setAttribute('aria-hidden', 'false');
+
+      let count = 5;
+      countNumber.textContent = count;
+
+      createFlowers();
+
+      const interval = setInterval(() => {
+        count--;
+        if (count > 0) {
+          countNumber.textContent = count;
+          createFlowers(); // more flowers on each tick
+        } else {
+          clearInterval(interval);
+          countNumber.textContent = "1";
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 250);
+        }
+      }, 900);
+    });
+  </script>
+</body>
+</html>
